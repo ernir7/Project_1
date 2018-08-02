@@ -15,7 +15,7 @@ var quotes = [
     citation : ""
     year     : ""
   },
-  
+
   {
     quote    : "Don't judge each day by the harvest you reap but by the seeds that you plant."
     source   : "Robert Louis Stevenson"
@@ -40,11 +40,31 @@ var quotes = [
 
 
 // Create the getRandomQuuote function and name it getRandomQuote
-
+function getRandomQuote(array) {
+  var randomNumber = Math.floor(Math.random() * 6);
+  return array[randomNumber];
+}
 
 
 // Create the printQuote funtion and name it printQuote
+function printQuote() {
+  var quote = getRandomQuote(quotes);
+  var str   = "";
 
+  str += <p class="quote"> quote.quote </p>;
+  str += <p class="source"> quote.source;
+
+  if(quote.citation !== "") {
+    str += <span class="citation"> quote.citation </span>;
+  }
+
+  if(quote.year !== "") {
+    str += <span class="year"> quote.year </span>;
+  }
+  str += </p>;
+
+  document.getElementById('quote-box').innerHTML = str;
+}
 
 
 // This event listener will respond to "Show another quote" button clicks
